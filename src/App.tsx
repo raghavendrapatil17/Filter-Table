@@ -29,10 +29,10 @@ import {
   Alert,
 } from "@mui/material";
 import {
+  IosShare as IosShareIcon,
+  FilterAlt as FilterAltIcon,
   Search as SearchIcon,
   FilterList as FilterIcon,
-  Settings as SettingsIcon,
-  Download as DownloadIcon,
   Close as CloseIcon,
   Add as AddIcon,
   MoreVert as MoreVertIcon,
@@ -905,7 +905,7 @@ function App() {
                 <Box sx={{ position: "relative", width: { xs: "100%", sm: "auto" } }}>
                   <Button
                     variant="outlined"
-                    startIcon={<SettingsIcon />}
+                    startIcon={<FilterAltIcon />}
                     ref={(node) => {
                       // Set anchor when button is rendered and sub filter should auto-open
                       if (node && showSubFilterDropdown && !subFilterAnchorEl) {
@@ -925,7 +925,7 @@ function App() {
                       const selectedCount = filters.get(selectedFilterField)?.size || 0;
                       const totalCount = getAvailableValues(selectedFilterField).length;
                       if (selectedCount === 0) {
-                        return getFilterLabel(selectedFilterField);
+                        return ` Select ${getFilterLabel(selectedFilterField)}`;
                       } else if (selectedCount === totalCount) {
                         return `All (${totalCount})`;
                       } else {
@@ -1040,7 +1040,7 @@ function App() {
               )}
               <Button
                 variant="outlined"
-                startIcon={<DownloadIcon />}
+                startIcon={<IosShareIcon />}
                 onClick={handleExport}
                 sx={{
                   minWidth: { xs: "100%", sm: 140 },
